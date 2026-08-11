@@ -1,0 +1,16 @@
+# Railway gibt den Port über die Umgebung vor. Lokal ist es 8080.
+:{$PORT:8080} {
+	root * /srv
+	encode gzip
+
+	# Adressen ohne .html trotzdem finden, also /preise wie /preise.html.
+	try_files {path} {path}/index.html {path}.html
+
+	file_server
+
+	# Falsche Adressen landen auf unserer eigenen 404-Seite.
+	handle_errors {
+		rewrite * /404.html
+		file_server
+	}
+}

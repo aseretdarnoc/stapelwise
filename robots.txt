@@ -1,0 +1,4 @@
+# Solange die Seite nur eine Vorschau ist, soll sie niemand finden.
+# Beim Livegang wird daraus: Allow: /
+User-agent: *
+Disallow: /
